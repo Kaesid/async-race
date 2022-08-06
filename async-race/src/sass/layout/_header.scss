@@ -1,0 +1,41 @@
+@use '../utils' as *;
+
+.header {
+  background: $headerGradient;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  &__wrap {
+    @include flex(space-between);
+    height: 40px;
+  }
+
+  &__nav {
+    width: 100%;
+
+    &__list {
+      @include flex(center);
+      gap: 20%;
+      padding: 0;
+
+      @include res(1200px) {
+        width: 70vw;
+      }
+
+      .link-active {
+        color: $linkActiveColor;
+        pointer-events: none;
+      }
+
+      &__item {
+        &__link {
+          @include header;
+          color: white;
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}

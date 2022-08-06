@@ -1,0 +1,220 @@
+@use '../utils' as *;
+
+.garage {
+  color: white;
+
+  &__header {
+    @include header2;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__page {
+    @include buttonText;
+    margin-bottom: 20px;
+  }
+
+  &__settings {
+    margin-bottom: 20px;
+
+    &__form {
+      @include flex(space-between);
+
+      @include res(1200px) {
+        display: block;
+      }
+
+      &__fieldset {
+        margin-bottom: 10px;
+      }
+
+      &__input {
+        height: 40px;
+        border-radius: 10px;
+      }
+
+      &__color {
+        margin-right: 5px;
+        margin-left: 5px;
+        height: 30px;
+      }
+
+      &__control {
+        display: flex;
+        gap: 30px;
+
+        @include res(1200px) {
+          margin-top: 30px;
+        }
+
+        &__race {
+          background: $goButtonGradient;
+          border: 2px $goButtonBorder solid;
+        }
+
+        &__generate {
+          background: $systemButtonGradient;
+          border: 2px $systemButtonBorder solid;
+        }
+
+        &__reset {
+          background: $cancelButtonAvatarGradient;
+          border: 2px black solid;
+        }
+      }
+    }
+  }
+  &__race {
+    width: 100%;
+
+    &__field {
+      position: relative;
+      width: 100%;
+
+      &__header {
+        &__name {
+          @include buttonText;
+          position: absolute;
+          text-align: center;
+          left: 140px;
+
+          margin: 0;
+
+          &_msg {
+            width: 100%;
+            color: $systemMsg;
+            padding-left: 20px;
+            text-align: right;
+          }
+        }
+      }
+      &__main {
+        width: 100%;
+        position: relative;
+        @include flex(flex-start);
+        align-items: flex-end;
+
+        &__select-delete {
+          display: flex;
+          flex-direction: column;
+          row-gap: 20px;
+        }
+        &__button-container {
+          display: block;
+        }
+        &__select {
+          height: 30px;
+          width: 30px;
+        }
+
+        &__remove {
+          border: 2px rgb(5, 5, 5) solid;
+          height: 30px;
+          width: 30px;
+          background: black;
+          background-image: url('../assets/icons/close-icon.png');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          cursor: pointer;
+          opacity: 0.5;
+          &:hover {
+            opacity: 1;
+          }
+        }
+        &__button {
+          margin-left: 20px;
+
+          &__stop {
+            background: $stopButtonGradient;
+            border: 2px hotpink solid;
+            height: 40px;
+            width: 70px;
+            border-radius: 0;
+          }
+
+          &__go {
+            background: $goButtonGradient;
+            border: 2px $goButtonBorder solid;
+            height: 40px;
+            width: 70px;
+            border-radius: 0;
+          }
+        }
+
+        &__car {
+          position: relative;
+          width: 80px;
+          height: 40px;
+          display: flex;
+          justify-content: flex-start;
+          margin-bottom: -12px;
+        }
+
+        .svg {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0px;
+          left: 0px;
+          width: 80px;
+          height: 40px;
+        }
+
+        .car-broken {
+          &::after {
+            content: '';
+            display: block;
+            width: 40px;
+            min-height: 40px;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            background-image: url(../assets/icons/4.jpg);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 1;
+          }
+        }
+
+        &__finish {
+          position: absolute;
+          left: calc(100% - 60px);
+          background-image: url(../assets/images/finish.png);
+          max-width: 50px;
+          max-height: 50px;
+          width: 100%;
+          height: 100%;
+          margin-bottom: -10px;
+          transform: rotateY(180deg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+      }
+      &__road {
+        border: 2px dotted;
+      }
+    }
+  }
+
+  &__page-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  &__winner-message {
+    @include header;
+    color: $systemMsg;
+    position: absolute;
+    font-size: 40px;
+    line-height: 55px;
+    width: 100%;
+    font-weight: 800;
+    text-align: center;
+    z-index: 5000;
+  }
+}

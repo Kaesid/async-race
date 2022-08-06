@@ -1,0 +1,55 @@
+@mixin flex($justCont) {
+  display: flex;
+  align-items: center;
+  justify-content: $justCont;
+}
+
+@mixin res($res) {
+  @media (max-width: $res) {
+    @content;
+  }
+}
+
+@mixin sortArrows() {
+  &::after {
+    position: absolute;
+    font-size: 35px;
+    line-height: 45px;
+    color: white;
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 5px 10px;
+    bottom: 0;
+    left: 70%;
+    opacity: 1;
+
+    @include res(647px) {
+      padding: 20px 0;
+      margin-left: -9px;
+    }
+  }
+}
+
+@mixin header() {
+  font-size: 25px;
+  line-height: 35px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin header2() {
+  font-size: 35px;
+  line-height: 45px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin buttonText() {
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 22px;
+  font-size: 18px;
+  font-style: normal;
+}
